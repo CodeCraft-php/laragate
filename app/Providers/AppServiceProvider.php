@@ -5,6 +5,7 @@ namespace App\Providers;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
 
@@ -24,6 +25,16 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureDefaults();
+        
+        Http::macro('SmsGateApi', fn () =>
+            Http::withBasicAuth(
+                config('services.sms_gateway.credentials.username'), 
+                config('services.sms_gateway.credentials.password')
+            )
+            ->baseUrl(config('services.sms_gateway.url'))
+            ->withHeaders(['Accept' => 'application/json'])
+            ->timeout(10)
+        );
     }
 
     /**

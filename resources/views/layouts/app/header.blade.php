@@ -13,6 +13,32 @@
                 <flux:navbar.item icon="layout-grid" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
                     {{ __('Dashboard') }}
                 </flux:navbar.item>
+                <flux:sidebar.group expandable heading="{{ __('Messages')  }}" class="grid">
+                    <flux:sidebar.item icon="envelope" :href="route('messages.overview')" :current="request()->routeIs('messages.overview')" wire:navigate>
+                        {{ __('Overview')  }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="envelope" :href="route('messages.incoming')" :current="request()->routeIs('messages.incoming')" wire:navigate>
+                        {{ __('Incoming')  }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="envelope-open" :href="route('messages.outgoing')" :current="request()->routeIs('messages.outgoing')" wire:navigate>
+                        {{ __('Outgoing')  }}
+                    </flux:sidebar.item>
+                </flux:sidebar.group>
+                <flux:navbar.item icon="device-phone-mobile" :href="route('devices')" :current="request()->routeIs('devices')" wire:navigate>
+                    {{ __('Devices') }}
+                </flux:navbar.item>
+                <flux:navbar.item icon="server" :href="route('system')" :current="request()->routeIs('system')" wire:navigate>
+                    {{ __('System') }}
+                </flux:navbar.item>
+                <flux:navbar.item icon="cog-6-tooth" :href="route('settings')" :current="request()->routeIs('settings')" wire:navigate>
+                    {{ __('Settings') }}
+                </flux:navbar.item>
+                <flux:navbar.item icon="webhook" :href="route('webhooks')" :current="request()->routeIs('webhooks')" wire:navigate>
+                    {{ __('Webhooks') }}
+                </flux:navbar.item>
+                <flux:navbar.item icon="shield-check" :href="route('authentication')" :current="request()->routeIs('authentication')" wire:navigate>
+                    {{ __('Authentication') }}
+                </flux:navbar.item>
             </flux:navbar>
 
             <flux:spacer />
@@ -55,6 +81,32 @@
                 <flux:sidebar.group :heading="__('Platform')">
                     <flux:sidebar.item icon="layout-grid" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Dashboard')  }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.group expandable heading="{{ __('Messages')  }}" class="grid">
+                        <flux:sidebar.item icon="envelope" :href="route('messages.overview')" :current="request()->routeIs('messages.overview')" wire:navigate>
+                            {{ __('Overview')  }}
+                        </flux:sidebar.item>
+                        <flux:sidebar.item icon="envelope" :href="route('messages.incoming')" :current="request()->routeIs('messages.incoming')" wire:navigate>
+                            {{ __('Incoming')  }}
+                        </flux:sidebar.item>
+                        <flux:sidebar.item icon="envelope-open" :href="route('messages.outgoing')" :current="request()->routeIs('messages.outgoing')" wire:navigate>
+                            {{ __('Outgoing')  }}
+                        </flux:sidebar.item>
+                    </flux:sidebar.group>
+                    <flux:sidebar.item icon="device-phone-mobile" :href="route('devices')" :current="request()->routeIs('devices')" wire:navigate>
+                        {{ __('Devices')  }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="server" :href="route('system')" :current="request()->routeIs('system')" wire:navigate>
+                        {{ __('System')  }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="cog-6-tooth" :href="route('settings')" :current="request()->routeIs('settings')" wire:navigate>
+                        {{ __('Settings')  }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="webhook" :href="route('webhooks')" :current="request()->routeIs('webhooks')" wire:navigate>
+                        {{ __('Webhooks')  }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="shield-check" :href="route('authentication')" :current="request()->routeIs('authentication')" wire:navigate>
+                        {{ __('Authentication')  }}
                     </flux:sidebar.item>
                 </flux:sidebar.group>
             </flux:sidebar.nav>

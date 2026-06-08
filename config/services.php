@@ -35,4 +35,12 @@ return [
         ],
     ],
 
+    'sms_gateway' => [
+        'credentials' => [
+            'username' => env('SMSGATE_LOCAL_USERNAME'),
+            'password' => env('SMSGATE_LOCAL_PASSWORD'),
+        ],
+        'url' => env('SMSGATE_LOCAL_URL'),
+    ],
+
 ];
