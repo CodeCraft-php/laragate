@@ -19,6 +19,7 @@ Route::prefix('messages')->middleware(['auth', 'verified'])->group(function () {
     Route::get('overview', [MessagesController::class, 'index'])->name('messages.overview');
     Route::get('incoming', [MessagesController::class, 'incoming'])->name('messages.incoming');
     Route::get('outgoing', [MessagesController::class, 'outgoing'])->name('messages.outgoing');
+    Route::post('outgoing', [MessagesController::class, 'store'])->name('messages.outgoing');
 });
 
 require __DIR__.'/settings.php';

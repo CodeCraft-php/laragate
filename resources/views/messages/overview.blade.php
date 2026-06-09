@@ -18,7 +18,7 @@
                     <flux:icon icon="arrow-trending-up" variant="micro" /> 10
                 </div>
                 <div class="absolute top-0 right-0 pr-2 pt-2">
-                    <flux:button icon="envelope" variant="subtle" size="sm" />
+                    <flux:button icon="paper-airplane" variant="subtle" size="sm" />
                 </div>
             </div>
             <div class="relative flex-1 rounded-lg px-6 py-4 bg-zinc-50 dark:bg-zinc-700">

@@ -14,13 +14,13 @@
                     {{ __('Dashboard') }}
                 </flux:navbar.item>
                 <flux:sidebar.group expandable heading="{{ __('Messages')  }}" class="grid">
-                    <flux:sidebar.item icon="envelope" :href="route('messages.overview')" :current="request()->routeIs('messages.overview')" wire:navigate>
+                    <flux:sidebar.item icon="envelope-open" :href="route('messages.overview')" :current="request()->routeIs('messages.overview')" wire:navigate>
                         {{ __('Overview')  }}
                     </flux:sidebar.item>
-                    <flux:sidebar.item icon="envelope" :href="route('messages.incoming')" :current="request()->routeIs('messages.incoming')" wire:navigate>
+                    <flux:sidebar.item icon="inbox-arrow-down" :href="route('messages.incoming')" :current="request()->routeIs('messages.incoming')" wire:navigate>
                         {{ __('Incoming')  }}
                     </flux:sidebar.item>
-                    <flux:sidebar.item icon="envelope-open" :href="route('messages.outgoing')" :current="request()->routeIs('messages.outgoing')" wire:navigate>
+                    <flux:sidebar.item icon="paper-airplane" :href="route('messages.outgoing')" :current="request()->routeIs('messages.outgoing')" wire:navigate>
                         {{ __('Outgoing')  }}
                     </flux:sidebar.item>
                 </flux:sidebar.group>
@@ -83,13 +83,13 @@
                         {{ __('Dashboard')  }}
                     </flux:sidebar.item>
                     <flux:sidebar.group expandable heading="{{ __('Messages')  }}" class="grid">
-                        <flux:sidebar.item icon="envelope" :href="route('messages.overview')" :current="request()->routeIs('messages.overview')" wire:navigate>
+                        <flux:sidebar.item icon="envelope-open" :href="route('messages.overview')" :current="request()->routeIs('messages.overview')" wire:navigate>
                             {{ __('Overview')  }}
                         </flux:sidebar.item>
-                        <flux:sidebar.item icon="envelope" :href="route('messages.incoming')" :current="request()->routeIs('messages.incoming')" wire:navigate>
+                        <flux:sidebar.item icon="inbox-arrow-down" :href="route('messages.incoming')" :current="request()->routeIs('messages.incoming')" wire:navigate>
                             {{ __('Incoming')  }}
                         </flux:sidebar.item>
-                        <flux:sidebar.item icon="envelope-open" :href="route('messages.outgoing')" :current="request()->routeIs('messages.outgoing')" wire:navigate>
+                        <flux:sidebar.item icon="paper-airplane" :href="route('messages.outgoing')" :current="request()->routeIs('messages.outgoing')" wire:navigate>
                             {{ __('Outgoing')  }}
                         </flux:sidebar.item>
                     </flux:sidebar.group>
