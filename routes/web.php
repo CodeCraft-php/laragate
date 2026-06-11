@@ -12,7 +12,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('system', 'system')->name('system');
     Route::view('settings', 'settings')->name('settings');
     Route::view('webhooks', 'webhooks')->name('webhooks');
-    Route::view('authentication', 'authentication')->name('authentication');
+    Route::view('authentication', 'authentication.authentication')->name('authentication');
+    Route::view('authentication/token', 'authentication.token')->middleware([
+            'password.confirm',
+        ])->name('token');
 });
 
 Route::prefix('messages')->middleware(['auth', 'verified'])->group(function () {

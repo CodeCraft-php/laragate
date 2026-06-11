@@ -3,6 +3,8 @@
 namespace App\Services;
 use AndroidSmsGateway\Client;
 use AndroidSmsGateway\Domain\MessageBuilder;
+use AndroidSmsGateway\Domain\TokenRequest;
+use AndroidSmsGateway\Domain\TokenResponse;
 
 class SmsGateService
 {
@@ -33,19 +35,22 @@ class SmsGateService
         ->build();
 
         $messageState = $this->client->SendMessage($message);
-        // try {
-            
-        //     echo "✅ Message sent! ID: " . $messageState->ID() . PHP_EOL;
-            
-            
-        //     // Check status after delay
-        //     // sleep(5);
-        //     // $updatedState = $this->client->GetMessageState($messageState->ID());
-        //     // echo "📊 Message status: " . $updatedState->State() . PHP_EOL;
+    }
 
-        // } catch (\Exception $e) {
-        //     echo "❌ Error: " . $e->getMessage() . PHP_EOL;
-        //     exit(1);
-        // }
+    public function generateToken(string $login, string $password, array $scopes, int $ttl) : TokenResponse
+    {
+        // First, create a client with Basic authentication to generate a token
+        $basicClient = new Client($login, $password,$this->url);
+
+        // Create a token request with specific scopes and TTL
+        $tokenRequest = new TokenRequest(
+            $scopes,  // Scopes for permissions
+            $ttl      // Token TTL in seconds (optional)
+        );
+        
+        // Generate the token
+        $tokenResponse = $basicClient->GenerateToken($tokenRequest);
+        
+        return $tokenResponse;
     }
 }
