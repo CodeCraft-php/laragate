@@ -9,10 +9,10 @@ use App\Models\Token;
 
 new class extends Component {
     #[Validate('required|string')]
-    public string $login = 'sms'; // Default to env variable or empty string
+    public string $login = ''; // Default to env variable or empty string
 
     #[Validate('required|string')]
-    public string $password = 'ae6kx5Da'; // Default to env variable or empty string
+    public string $password = ''; // Default to env variable or empty string
 
     #[Validate('required|integer')]
     public int $ttl = 36400;
@@ -50,8 +50,8 @@ new class extends Component {
         } catch (\Exception $e) {
 
             // Log the error for debugging
-            \Log::error('Token generation failed: ' . $e->getMessage());
-            Flux::toast(text: $e->getMessage(), variant: 'danger');
+            Log::channel('laragate')->error('Token generation failed: ' . $e->getMessage());
+            Flux::toast(text: 'Token generation failed: ', variant: 'danger');
         }
     }
 };

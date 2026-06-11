@@ -8,7 +8,7 @@ use AndroidSmsGateway\Domain\TokenResponse;
 
 class SmsGateService
 {
-    private Client $client;
+    protected Client $client;
     /**
      * Create a new class instance.
      */

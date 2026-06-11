@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MessagesController;
+use App\Http\Controllers\WebHooksController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
@@ -11,7 +12,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('devices', 'devices')->name('devices');
     Route::view('system', 'system')->name('system');
     Route::view('settings', 'settings')->name('settings');
-    Route::view('webhooks', 'webhooks')->name('webhooks');
+    Route::get('webhooks', [WebHooksController::class, 'index'])->name('webhooks');
     Route::view('authentication', 'authentication.authentication')->name('authentication');
     Route::view('authentication/token', 'authentication.token')->middleware([
             'password.confirm',

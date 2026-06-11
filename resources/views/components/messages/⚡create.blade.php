@@ -11,16 +11,23 @@ new class extends Component {
 
     public function sendMessage(): void
     {
-        $this->validate([
-            'message' => 'required|string',
-            'dialCode' => 'required',
-            'phone' => 'required',
-        ]);
-        // ton appel API ici
-        app(SmsGateService::class)->sendMessage($this->dialCode . $this->phone, $this->message);
+        try{
+            $this->validate([
+                'message' => 'required|string',
+                'dialCode' => 'required',
+                'phone' => 'required',
+            ]);
+            // ton appel API ici
+            app(SmsGateService::class)->sendMessage($this->dialCode . $this->phone, $this->message);
 
-        Flux::modal('send-message')->close();
-        Flux::toast(text: 'Message envoyé !', variant: 'success');
+            Flux::modal('send-message')->close();
+            Flux::toast(text: 'Message envoyé !', variant: 'success');
+        }catch(\Exception $e){
+            Flux::modal('send-message')->close();
+            // Log the error for debugging
+            Log::channel('laragate')->error('Send Message failed: ' . $e->getMessage());
+            Flux::toast(text: 'Failed !', variant: 'danger');
+        }
     }
 };
 ?>

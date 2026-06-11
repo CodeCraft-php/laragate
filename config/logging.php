@@ -65,6 +65,12 @@ return [
             'replace_placeholders' => true,
         ],
 
+        'laragate' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/laragate.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),
